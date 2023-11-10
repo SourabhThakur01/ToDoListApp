@@ -1,16 +1,21 @@
-// App.jsx
-import React from 'react';
-import { View } from 'react-native';
-import ToDoList from './ToDoList'; 
-import ToDoForm from './ToDoForm'; 
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native';
+import ToDoList from './ToDoList';
+import ToDoForm from './ToDoForm';
 
-const App = () => {
+function App() {
+  const [tasks, setTasks] = useState([
+    { id: 1, text: 'Do laundry' },
+    { id: 2, text: 'Go to gym' },
+    { id: 3, text: 'Walk dog' },
+  ]);
+
   return (
-    <View>
-      <ToDoList />
+    <SafeAreaView>
+      <ToDoList tasks={tasks} />
       <ToDoForm />
-    </View>
+    </SafeAreaView>
   );
-};
+}
 
 export default App;
